@@ -69,15 +69,15 @@ The frontend is a simple HTML/CSS/JavaScript application. No additional setup is
    - Option 2: Use a simple HTTP server:
      ```
      cd frontend
-     python -m http.server
+     python -m http.server 8081
      ```
-     Then visit http://localhost:8000 in your browser
+     Then visit http://localhost:8081 in your browser
 
 ## API Endpoints
 
 - `GET /api/search?query={query}`: Search for podcast episodes
 - `POST /api/transcribe`: Transcribe a podcast episode using OpenAI's Whisper (requires `audio_url` in request body)
-- `POST /api/summarize`: Generate a summary with timestamps (requires `transcript` in request body)
+- `POST /api/summarize`: Generate a summary with timestamps using the GPT-4o model (requires `transcript` in request body)
 
 ## Notes
 
@@ -85,6 +85,7 @@ The frontend is a simple HTML/CSS/JavaScript application. No additional setup is
 - Transcription uses OpenAI's Whisper model which requires downloading the audio file temporarily.
 - The OpenAI API requires a valid API key and may incur costs depending on usage.
 - Whisper is optimized for transcribing speech to text and performs well on podcast audio.
+- Summarization now uses the GPT-4o model, which supports larger context windows.
 
 ## License
 
